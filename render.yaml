@@ -1,0 +1,14 @@
+services:
+  - type: worker
+    name: food-voucher-bot
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python bot.py"
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_CHAT_IDS
+        sync: false
+      - key: EMPLOYEE_CSV
+        value: table.csv
